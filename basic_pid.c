@@ -27,7 +27,7 @@ void PID_Coefficents(struct PID *pid_struct, float Kp, float Ki, float Kd, float
 
 // Computes PID, outputs raw PID value around 0 point.
 float PID_Compute(absolute_time_t time, struct PID *pid) {
-    float time_delta = absolute_time_diff_us(PID_pitch.time_prev, time) / 1000000.f; // seconds
+    float time_delta = absolute_time_diff_us(pid->time_prev, time) / 1000000.f; // seconds
     float error = pid->setpoint - pid->measured;
 
     // ~~~ Proportianal ~~~
